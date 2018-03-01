@@ -1,0 +1,43 @@
+<div class="container">
+    <mat-form-field>
+        <input matInput [matDatepicker]="dp" placeholder="Different locale">
+        <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+        <mat-datepicker #dp></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-select placeholder="Toppings" [(ngModel)]="selectedOptions" name="selectedOptions" multiple>
+            <mat-option *ngFor="let noteOption of noteOptionList" [value]="noteOption">{{noteOption}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-slider class="example-margin" [color]="'primary'" [max]="100" [min]="1" [step]="1" [thumb-label]="true" [tick-interval]="25"
+        name="sliderVaue" [(ngModel)]="sliderVaue">
+    </mat-slider>
+
+    <mat-slide-toggle class="example-margin" [color]="'primary'">
+        Slide me!
+    </mat-slide-toggle>
+
+    <mat-form-field>
+        <textarea matInput [(ngModel)]="newNoteField" name="comment" placeholder="Add a note" matTextareaAutosize matAutosizeMinRows="2"
+            matAutosizeMaxRows="5"></textarea>
+    </mat-form-field>
+    <button style="text-align:center" mat-raised-button color="primary" (click)="addNote(this.newNoteField)">Add Note</button>
+
+    <div style="margin:5px 0px" *ngFor="let note of this.noteList">
+        <mat-card>
+            <mat-card-content>
+                <div class="row">
+                    <div class="col-10">
+                        {{note.noteDesc}}
+                    </div>
+                    <div class="col-2">
+                        <button mat-button (click)="this.deleteNote(note.$key)">
+                            <mat-icon>close</mat-icon>
+                        </button>
+                    </div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>
