@@ -4,38 +4,48 @@ import { Observable } from 'rxjs/Rx';
 import { catchError, map, tap } from 'rxjs/operators';
 import { of } from 'rxjs/observable/of';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
-import { Customer, Employee, Note } from './dashboard.model';
+import { HotspotMaster } from './dashboard.model';
 
 
 @Injectable()
 export class DashboardService {
 
-    noteList: AngularFireList<any>;
-    // noteList: AngularFireList<any>;
-    selectedEmployee: Employee = new Employee();
+    hotspotList: AngularFireList<any>
+    tagList: AngularFireList<any>
 
     constructor(private http: HttpClient, private firebase: AngularFireDatabase) {
 
     }
 
-    getCourses(listPath): Observable<any[]> {
-        return this.firebase.list('noteList/').valueChanges();
+    getHotSpotList() {
+        this.hotspotList = this.firebase.list('hotspotList/');
+        return this.hotspotList;
     }
 
-    getNoteList() {
-        this.noteList = this.firebase.list('noteList/');
-        return this.noteList;
+    addHotspot(hotspot: HotspotMaster) {
+        this.hotspotList.push({
+            SSID: hotspot.SSID,
+            latitude: hotspot.latitude,
+            longitude: hotspot.longitude,
+            name: hotspot.name,
+            tag: hotspot.tag
+        });
     }
 
-    addNote(note: Note) {
-        this.noteList.push({ noteDesc: note.noteDesc, updatedTime: note.updatedTime });
+    getTagList() {
+        this.tagList = this.firebase.list('tagList/');
+        return this.tagList;
     }
 
-    updateNote(note: Note) {
-        this.noteList.update(note.$key, note);
+    addTag(tagName: string) {
+        this.tagList.push({ name: tagName });
     }
 
-    deleteNote($key: string) {
-        this.noteList.remove($key);
+    updateHotspot(hotspot: HotspotMaster) {
+        this.hotspotList.update(hotspot.$key, hotspot);
+    }
+
+    deleteHotspot($key: string) {
+        this.hotspotList.remove($key);
     }
 }

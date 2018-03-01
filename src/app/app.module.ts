@@ -8,9 +8,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AppComponent } from './app.component';
 
+
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AgmCoreModule } from '@agm/core';
+
 
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
@@ -34,10 +37,13 @@ export const firebaseConfig = {
 @NgModule({
   declarations: [
     AppComponent,
-    // HttpClient
     DashboardComponent
   ],
   imports: [
+    AgmCoreModule.forRoot({
+      apiKey: "AIzaSyB8NCphJh5-XfQFXb2EcrKO922PgoLt-Aw",
+      libraries: ["places"]
+    }),
     BrowserModule,
     FormsModule, ReactiveFormsModule,
     BrowserAnimationsModule,

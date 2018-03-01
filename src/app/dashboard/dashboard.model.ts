@@ -1,20 +1,11 @@
-export class Customer {
-    $key: string;
+export class HotspotMaster {
+    $key?: string = null;
+    SSID: string;
+    latitude: number;
+    longitude: number;
     name: string;
-    age: number;
-    active: boolean = true;
+    tag: string;
 }
-
-export class Employee {
-    $key: string;
+export class TagMaster {
     name: string;
-    position: string;
-    office: string;
-    salary: number;
-}
-
-export class Note {
-    $key: string;
-    noteDesc: string;
-    updatedTime: Date;
 }

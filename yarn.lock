@@ -2,6 +2,10 @@
 # yarn lockfile v1
 
 
+"@agm/core@^1.0.0-beta.2":
+  version "1.0.0-beta.2"
+  resolved "https://registry.yarnpkg.com/@agm/core/-/core-1.0.0-beta.2.tgz#da15c0a5e86fe9e1178f14c36a3e0ffc14f9ad77"
+
 "@angular-devkit/build-optimizer@0.0.42":
   version "0.0.42"
   resolved "https://registry.yarnpkg.com/@angular-devkit/build-optimizer/-/build-optimizer-0.0.42.tgz#402b0dda4883db91e2381c3ddc55888408a7894e"
@@ -287,6 +291,10 @@
   dependencies:
     typescript "~2.6.2"
 
+"@types/googlemaps@^3.30.7":
+  version "3.30.7"
+  resolved "https://registry.yarnpkg.com/@types/googlemaps/-/googlemaps-3.30.7.tgz#1573d24d326fd96cd8baea1f12e8343fb97ad45b"
+
 "@types/jquery@^3.3.0":
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/@types/jquery/-/jquery-3.3.0.tgz#6316ac20a1a13c5d521a2dc661befc7184f73f5b"
@@ -363,6 +371,10 @@ alphanum-sort@^1.0.1, alphanum-sort@^1.0.2:
 amdefine@>=0.0.4:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/amdefine/-/amdefine-1.0.1.tgz#4a5282ac164729e93619bcfd3ad151f817ce91f5"
+
+angular2-google-maps@^0.17.0:
+  version "0.17.0"
+  resolved "https://registry.yarnpkg.com/angular2-google-maps/-/angular2-google-maps-0.17.0.tgz#ad8366fa4e5c56de0b8b20f003b5f7a1da06ffe3"
 
 angularfire2@^5.0.0-rc.6:
   version "5.0.0-rc.6"
