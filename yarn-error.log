@@ -1,8 +1,8 @@
 Arguments: 
-  /home/subbu/.nvm/versions/node/v8.9.4/bin/node /home/subbu/.nvm/versions/node/v8.9.4/bin/yarn start
+  /home/subbu/.nvm/versions/node/v8.9.4/bin/node /home/subbu/.nvm/versions/node/v8.9.4/bin/yarn run build
 
 PATH: 
-  /home/subbu/.nvm/versions/node/v8.9.4/bin:/home/subbu/bin:/home/subbu/.local/bin:/home/subbu/bin:/home/subbu/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+  /home/subbu/.nvm/versions/node/v8.9.4/bin:/home/subbu/bin:/home/subbu/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
 
 Yarn version: 
   1.5.1
@@ -20,11 +20,13 @@ npm manifest:
     "license": "MIT",
     "scripts": {
       "ng": "ng",
-      "start": "ng serve --port 8426 --host 0.0.0.0",
+      "start-dev": "ng serve --port 7777 --host 0.0.0.0",
       "build": "ng build --prod",
       "test": "ng test",
       "lint": "ng lint",
-      "e2e": "ng e2e"
+      "e2e": "ng e2e",
+      "start": "node index.js",
+      "postinstall": "rm -rf dist && npm run build"
     },
     "private": true,
     "dependencies": {
@@ -44,6 +46,7 @@ npm manifest:
       "angularfire2": "^5.0.0-rc.6",
       "bootstrap": "^4.0.0-beta.3",
       "core-js": "^2.4.1",
+      "express": "^4.16.2",
       "firebase": "^4.10.1",
       "hammerjs": "^2.0.8",
       "jquery": "^3.3.1",
@@ -6424,10 +6427,10 @@ Lockfile:
 
 Trace: 
   Error: Command failed.
-  Exit signal: SIGTERM
+  Exit code: 1
   Command: sh
-  Arguments: -c ng serve --port 8426 --host 0.0.0.0
-  Directory: /home/subbu/workspace/fuzzy-spoon
+  Arguments: -c ng build --prod
+  Directory: /home/subbu/workspace/subbu-ms
   Output:
   
       at ProcessTermError.MessageError (/home/subbu/.nvm/versions/node/v8.9.4/lib/node_modules/yarn/lib/cli.js:186:110)
